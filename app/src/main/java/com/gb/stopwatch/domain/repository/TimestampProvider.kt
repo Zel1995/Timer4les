@@ -1,4 +1,4 @@
-package com.gb.stopwatch
+package com.gb.stopwatch.domain.repository
 
 interface TimestampProvider {
     fun getMilliseconds(): Long

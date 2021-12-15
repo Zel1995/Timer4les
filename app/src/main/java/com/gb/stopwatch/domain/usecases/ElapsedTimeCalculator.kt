@@ -1,4 +1,7 @@
-package com.gb.stopwatch
+package com.gb.stopwatch.domain.usecases
+
+import com.gb.stopwatch.domain.repository.StopwatchState
+import com.gb.stopwatch.domain.repository.TimestampProvider
 
 class ElapsedTimeCalculator(
     private val timestampProvider: TimestampProvider,

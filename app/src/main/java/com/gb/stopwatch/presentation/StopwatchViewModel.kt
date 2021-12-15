@@ -1,14 +1,22 @@
-package com.gb.stopwatch
+package com.gb.stopwatch.presentation
 
+import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class StopwatchListOrchestrator(
-    private val stopwatchStateHolder: StopwatchStateHolder,
-    private val scope: CoroutineScope,
-) {
+class StopwatchViewModel(
+    private val stopwatchStateHolder: StopwatchStateHolder
+): ViewModel() {
 
+    companion object {
+        const val DEFAULT_TIME = "00:00:000"
+    }
+
+    private val scope: CoroutineScope = CoroutineScope(
+        Dispatchers.Main
+                + SupervisorJob()
+    )
     private var job: Job? = null
     private val mutableTicker = MutableStateFlow("")
     val ticker: StateFlow<String> = mutableTicker
@@ -44,6 +52,6 @@ class StopwatchListOrchestrator(
     }
 
     private fun clearValue() {
-        mutableTicker.value = "00:00:000"
+        mutableTicker.value = DEFAULT_TIME
     }
 }

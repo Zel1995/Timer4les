@@ -1,4 +1,4 @@
-package com.gb.stopwatch
+package com.gb.stopwatch.presentation.formatter
 
 class TimestampMillisecondsFormatter {
 
@@ -19,7 +19,4 @@ class TimestampMillisecondsFormatter {
 
     private fun Long.pad(desiredLength: Int) = this.toString().padStart(desiredLength, '0')
 
-    companion object {
-        const val DEFAULT_TIME = "00:00:000"
-    }
 }
